@@ -4,8 +4,9 @@ const cors = require('cors'); // cors middleware to have a great API experience
 const path = require("path"); // express has a method for using local path. but now.sh doesn't like it.
 const app = express(); // Express server (we seperate to introduce middleware) you could also do: app = require("express")()
 const port = process.env.PORT || 8080; // use any port you want or use a enviromental PORT variable
-const bodyParser = require('body-parser'); // to parse "POST"
-app.use(bodyParser.urlencoded({ extended: false })); // Part of "parsing POST"
+//const bodyParser = require('body-parser'); // to parse "POST"
+//app.use(bodyParser.urlencoded({ extended: false })); // Part of "parsing POST"
+app.set(express.json()); // Now express no longer needs the body-parser middleware and has it's own.
 app.set('view engine', 'ejs'); // I choose the "EJS" view engines. Other popular are hbs, pub and hogan
 app.set("views", path.join(__dirname, `/views`)); // specify the location of the "views". NOT needed for dev but NOW.SH needs it
 app.use(cors()); // For APIS this allows CORS access
