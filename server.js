@@ -6,7 +6,7 @@ const app = express(); // Express server (we seperate to introduce middleware) y
 const port = process.env.PORT || 8080; // use any port you want or use a enviromental PORT variable
 const bodyParser = require('body-parser'); // to parse "POST"
 app.use(bodyParser.urlencoded({ extended: false })); // Part of "parsing POST"
-app.set(express.json()); // Now express no longer needs the body-parser middleware and has it's own.
+app.use(express.json()); // Now express no longer needs the body-parser middleware and has it's own.
 app.set('view engine', 'ejs'); // I choose the "EJS" view engines. Other popular are hbs, pub and hogan
 app.set("views", path.join(__dirname, `/views`)); // specify the location of the "views". NOT needed for dev but NOW.SH needs it
 app.use(cors()); // For APIS this allows CORS access
@@ -28,4 +28,4 @@ app.post("/submit", (req,res) => {
 // start the web server.
 let server = http.createServer(app);
 server.listen(port);
-console.log("http server listening on %d", port); // this is a good idea and will remind you which port it's listening to.
+console.log("http server listening on http://localhost:%d", port); // this is a good idea and will remind you which port it's listening to.
