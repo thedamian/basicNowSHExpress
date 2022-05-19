@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "name": "basicExpressBoilerplate",
     "builds": [
       {
          "src": "server.js", "use": "@now/node" 
@@ -9,6 +8,5 @@
         {
           "src":"/.*",
           "dest": "/server.js"
-        }],
-        "alias": ["basicExpressBoilerplate"]
+        }]
   }
